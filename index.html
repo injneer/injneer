@@ -34,27 +34,13 @@
     .highlight {
       color: #1e40af;
     }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease-out forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
     section {
-      scroll-margin-top: 80px;
+      min-height: 100vh;
+      padding: 3rem 1rem;
+      box-sizing: border-box;
     }
     #logo {
-      transition: transform 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-    }
-    #logo:hover {
-      color: #2563eb;
-      transform: scale(1.1) rotate(-5deg);
+      cursor: default;
     }
     #marquee-container {
       position: fixed;
@@ -74,7 +60,7 @@
     #marquee {
       display: flex;
       white-space: nowrap;
-      animation: marqueeAnim 20s linear infinite;
+      animation: marqueeAnim 25s linear infinite;
       color: white;
       font-size: 12px;
       line-height: 20px;
@@ -84,85 +70,193 @@
       margin-right: 20px;
     }
     @keyframes marqueeAnim {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
     #currency-switch-container {
       position: fixed;
-      top: 70px;
+      top: 50px;
       right: 24px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      width: 130px;
       z-index: 1001;
-      gap: 6px;
+      padding-top: 4px;
     }
-    #currency-switch-container button {
+    #currency-toggle {
       background: black;
       border: 2px solid white;
       color: white;
-      font-size: 12px;
-      padding: 2px 8px;
+      font-size: 10px;
+      padding: 1px 6px;
       border-radius: 5px;
       cursor: pointer;
-      user-select: none;
       font-weight: 600;
-      min-width: 50px;
-      margin-top: 4px;
+      min-width: 40px;
       text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+      user-select: none;
     }
-    #currency-switch-container button:hover,
-    #currency-switch-container button[aria-pressed='true'] {
-      background-color: white;
-      color: black;
-      border-color: white;
-    }
-    #currency-pointer {
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 10px solid white;
-      margin-top: -6px;
+    /* About paragraph styling */
+    #about p {
+      text-align: justify;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #333333;
     }
   </style>
 </head>
 <body>
-  <div id="marquee-container" aria-label="Top 10 cryptocurrencies prices marquee">
-    <div id="marquee" aria-live="polite" aria-atomic="true">Loading prices...</div>
+  <div
+    id="marquee-container"
+    aria-label="Top 10 cryptocurrencies prices marquee"
+  >
+    <div id="marquee" aria-live="polite" aria-atomic="true">
+      Loading prices...
+    </div>
   </div>
-  <div id="currency-switch-container" role="group" aria-label="Currency switch">
-    <div id="currency-pointer"></div>
-    <button id="currency-toggle" type="button" aria-pressed="false" aria-label="Toggle currency">USD</button>
+  <div
+    id="currency-switch-container"
+    role="group"
+    aria-label="Currency switch"
+  >
+    <button
+      id="currency-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle currency"
+    >
+      USD
+    </button>
   </div>
-  <header class="flex justify-between items-center p-6">
-    <h1 id="logo" class="text-3xl font-bold tracking-widest select-none" tabindex="0" role="heading" aria-level="1">injneer</h1>
+  <header
+    class="flex justify-between items-center p-6"
+    style="position: relative;"
+  >
+    <h1
+      id="logo"
+      class="text-3xl font-bold tracking-widest select-none"
+      tabindex="0"
+      role="heading"
+      aria-level="1"
+    >
+      injneer
+      <sup
+        aria-label="Canadian flag"
+        style="
+          font-size: 0.5em;
+          margin-left: 4px;
+          position: relative;
+          top: -0.3em;
+          user-select: none;
+          font-weight: normal;
+        "
+        >🇨🇦</sup
+      >
+    </h1>
   </header>
-  <section class="min-h-screen flex flex-col justify-center items-center text-center" id="hero">
+  <section
+    class="flex flex-col justify-center items-center text-center"
+    id="hero"
+  >
     <h2 class="text-6xl font-extrabold mb-6">Design. Build. Inspire.</h2>
-    <p class="text-xl text-gray-700">Gursimran Singh, aspiring electrical engineer</p>
-  </section>
-  <section id="about" class="min-h-screen flex items-center p-10 max-w-4xl mx-auto">
-    <p class="text-lg text-gray-800 leading-relaxed">
-      Currently, I am working at <a href="https://jenaindustries.com" target="_blank" rel="noopener noreferrer" class="highlight font-semibold">Jena Industries</a> as an Industrial Electrician, specializing in building Air Makeup units, Infrared ovens, and paint line controls. I thoroughly enjoy this work because of my passion for automation. Alongside, I run <a href="https://idzinestudio.com" target="_blank" rel="noopener noreferrer" class="highlight font-semibold">Idzinestudio</a>, a web development corporation based in Canada. My knowledge and interest in cryptography have drawn me deeply into the crypto market and into the Web3 world.
+    <p class="text-xl text-gray-700 max-w-xl mx-auto">
+      Gursimran Singh, aspiring electrical engineer
     </p>
   </section>
-  <section id="contact" class="min-h-screen flex flex-col justify-center items-center text-center p-10">
+  <section
+    id="about"
+    class="flex items-center p-10 max-w-4xl mx-auto"
+  >
+    <p>
+      Currently, I am working at
+      <a
+        href="https://jenaindustries.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="highlight font-semibold"
+        >Jena Industries</a
+      >
+      as an Industrial Electrician, specializing in building Air Makeup units,
+      Infrared ovens, and paint line controls. I thoroughly enjoy this work
+      because of my passion for automation. Alongside, I run
+      <a
+        href="https://idzinestudio.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="highlight font-semibold"
+        >Idzinestudio</a
+      >, a web development corporation based in Canada. My knowledge and
+      interest in cryptography have drawn me deeply into the Web3 world.
+    </p>
+  </section>
+  <section
+    id="contact"
+    class="flex flex-col justify-center items-center text-center p-10"
+  >
     <h3 class="text-4xl font-bold mb-4">Let’s Connect</h3>
     <p class="text-gray-700 mb-6">
-      Drop me a line at <a href="mailto:singh@injneer.com" class="highlight">singh@injneer.com</a>
+      Drop me a line at
+      <a href="mailto:singh@injneer.com" class="highlight">singh@injneer.com</a>
     </p>
     <div class="space-x-6 text-lg font-semibold flex">
-      <a href="https://x.com/injneer" target="_blank" rel="noopener noreferrer" class="highlight" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://www.linkedin.com/in/gursimransinghk/" target="_blank" rel="noopener noreferrer" class="highlight" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/injneer" target="_blank" rel="noopener noreferrer" class="highlight" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a
+        href="https://x.com/injneer"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="highlight"
+        aria-label="X"
+        ><i class="fa-brands fa-x-twitter"></i
+      ></a>
+      <a
+        href="https://www.linkedin.com/in/gursimransinghk/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="highlight"
+        aria-label="LinkedIn"
+        ><i class="fa-brands fa-linkedin"></i
+      ></a>
+      <a
+        href="https://github.com/injneer"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="highlight"
+        aria-label="GitHub"
+        ><i class="fa-brands fa-github"></i
+      ></a>
     </div>
   </section>
   <footer class="text-center text-gray-600 p-6 text-sm">
-    <p>&copy; 2025 injneer.com — Made with <span class="text-red-500">❤</span> by Gursimran Singh</p>
-    <p>Support: <a href="https://injneer.eth" target="_blank" rel="noopener noreferrer" class="highlight">injneer.eth</a> &amp; <a href="https://injneer.sol" target="_blank" rel="noopener noreferrer" class="highlight">injneer.sol</a></p>
+    <p>
+      &copy; 2025 injneer.com — Made with <span class="text-red-500">❤</span>
+      by Gursimran Singh
+    </p>
+    <p>
+      Support:
+      <a
+        href="https://injneer.eth"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="highlight"
+        >injneer.eth</a
+      >
+      &amp;
+      <a
+        href="https://injneer.sol"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="highlight"
+        >injneer.sol</a
+      >
+    </p>
     <p>This website does not collect cookies or track personal data.</p>
   </footer>
+
   <script>
     const marquee = document.getElementById('marquee');
     const toggle = document.getElementById('currency-toggle');
@@ -170,7 +264,9 @@
 
     async function fetchPrices() {
       try {
-        const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=10&page=1&sparkline=false`);
+        const res = await fetch(
+          `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=10&page=1&sparkline=false`
+        );
         const data = await res.json();
         marquee.innerHTML = '';
         data.forEach((coin) => {
@@ -178,19 +274,126 @@
           span.textContent = `${coin.symbol.toUpperCase()}: ${coin.current_price.toLocaleString()} ${currency.toUpperCase()}`;
           marquee.appendChild(span);
         });
-        marquee.innerHTML += marquee.innerHTML; // clone for loop effect
+        // duplicate content for smooth marquee
+        marquee.innerHTML += marquee.innerHTML;
       } catch (e) {
         marquee.textContent = 'Failed to load prices';
       }
     }
 
+    function updateToggle() {
+      toggle.textContent = currency.toUpperCase();
+      toggle.setAttribute('aria-pressed', currency === 'cad' ? 'true' : 'false');
+      toggle.style.backgroundColor = 'black';
+      toggle.style.color = 'white';
+      toggle.style.borderColor = 'white';
+    }
+
     toggle.addEventListener('click', () => {
       currency = currency === 'usd' ? 'cad' : 'usd';
-      toggle.textContent = currency.toUpperCase();
+      updateToggle();
       fetchPrices();
     });
 
+    const sections = ['hero', 'about', 'contact'];
+
+    function getCurrentSectionIndex() {
+      const scrollY = window.scrollY;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      for (let i = 0; i < sections.length; i++) {
+        const el = document.getElementById(sections[i]);
+        const offset = el.offsetTop;
+        const distance = Math.abs(offset - scrollY);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = i;
+        }
+      }
+      return closestIndex;
+    }
+
+    function scrollToSection(index) {
+      if (index < 0) index = 0;
+      if (index >= sections.length) index = sections.length - 1;
+      const target = document.getElementById(sections[index]);
+      window.scrollTo({
+        top: target.offsetTop,
+        behavior: 'smooth',
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (
+        e.target.tagName === 'INPUT' ||
+        e.target.tagName === 'TEXTAREA' ||
+        e.target.isContentEditable
+      ) {
+        return;
+      }
+      const currentIndex = getCurrentSectionIndex();
+
+      switch (e.key) {
+        case 'ArrowLeft':
+        case 'ArrowRight':
+          currency = currency === 'usd' ? 'cad' : 'usd';
+          updateToggle();
+          fetchPrices();
+          break;
+        case 'ArrowDown':
+          if (currentIndex < sections.length - 1) {
+            scrollToSection(currentIndex + 1);
+          }
+          break;
+        case 'ArrowUp':
+          if (currentIndex > 0) {
+            scrollToSection(currentIndex - 1);
+          }
+          break;
+      }
+    });
+
+    // Add smooth scroll on wheel to switch sections
+    let isScrolling = false;
+
+    window.addEventListener('wheel', (e) => {
+      if (isScrolling) return;
+
+      if (
+        e.target.tagName === 'INPUT' ||
+        e.target.tagName === 'TEXTAREA' ||
+        e.target.isContentEditable
+      ) {
+        return; // ignore scroll inside inputs/textareas
+      }
+
+      const currentIndex = getCurrentSectionIndex();
+      if (e.deltaY > 0) {
+        // Scroll down
+        if (currentIndex < sections.length - 1) {
+          isScrolling = true;
+          scrollToSection(currentIndex + 1);
+          setTimeout(() => {
+            isScrolling = false;
+          }, 1000); // throttle duration (ms)
+        }
+      } else if (e.deltaY < 0) {
+        // Scroll up
+        if (currentIndex > 0) {
+          isScrolling = true;
+          scrollToSection(currentIndex - 1);
+          setTimeout(() => {
+            isScrolling = false;
+          }, 1000);
+        }
+      }
+    });
+
+    // Initial
+    updateToggle();
     fetchPrices();
+
+    // Refresh every minute
     setInterval(fetchPrices, 60000);
   </script>
 </body>
