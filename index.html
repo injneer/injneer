@@ -1,279 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Injneer - Gursimran Singh's Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            overscroll-behavior: none;
-        }
-        .section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1rem;
-            scroll-snap-align: start;
-        }
-        .blog-card {
-            transition: transform 0.3s ease;
-        }
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-        ::selection {
-            background: #000000;
-            color: #ffffff;
-        }
-        html {
-            scroll-snap-type: y mandatory;
-            overflow-x: hidden;
-        }
-        .logo-container {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 50;
-        }
-        .social-container {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 50;
-        }
-        .logo {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: #000000;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-        }
-        .social-link {
-            color: #000000;
-            transition: opacity 0.3s ease;
-        }
-        .social-link:hover {
-            opacity: 0.7;
-        }
-        .social-icon {
-            color: #000000;
-            font-size: 20px;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            border: 1px solid #000000;
-            background-color: #ffffff;
-            color: #000000;
-            width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border-radius: 0.25rem;
-        }
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: #4b5563;
-        }
-        .contact-form button {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 0.5rem 1rem;
-            border-radius: 0.25rem;
-            transition: background-color 0.3s ease;
-        }
-        .contact-form button:hover {
-            background-color: #374151;
-        }
-        .confirmation-message {
-            color: #000000;
-            font-size: 1rem;
-            margin-top: 1rem;
-            display: none;
-        }
-        @media (max-width: 640px) {
-            .section {
-                padding: 1rem;
-            }
-            h1 {
-                font-size: 2.5rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-            .logo {
-                font-size: 1.2rem;
-            }
-            .social-icon {
-                font-size: 18px;
-            }
-            .social-container {
-                display: flex;
-                gap: 0.5rem;
-                justify-content: flex-end;
-            }
-            .contact-form input,
-            .contact-form textarea {
-                font-size: 0.9rem;
-            }
-            .confirmation-message {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>injneer.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1156.ani),
+        url(https://ani.cursors-4u.net/cursors/cur-13/cur1156.png), auto !important;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    a:visited {
+      color: inherit;
+    }
+    .highlight {
+      color: #1e40af;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    section {
+      scroll-margin-top: 80px;
+    }
+    #logo {
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    #logo:hover {
+      color: #2563eb;
+      transform: scale(1.1) rotate(-5deg);
+    }
+    #marquee-container {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      width: 130px;
+      height: 20px;
+      background-color: black;
+      border-radius: 9999px;
+      overflow: hidden;
+      user-select: none;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
+    #marquee {
+      display: flex;
+      white-space: nowrap;
+      animation: marqueeAnim 20s linear infinite;
+      color: white;
+      font-size: 12px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+    #marquee span {
+      margin-right: 20px;
+    }
+    @keyframes marqueeAnim {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    #currency-switch-container {
+      position: fixed;
+      top: 70px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1001;
+      gap: 6px;
+    }
+    #currency-switch-container button {
+      background: black;
+      border: 2px solid white;
+      color: white;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 600;
+      min-width: 50px;
+      margin-top: 4px;
+      text-align: center;
+    }
+    #currency-switch-container button:hover,
+    #currency-switch-container button[aria-pressed='true'] {
+      background-color: white;
+      color: black;
+      border-color: white;
+    }
+    #currency-pointer {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 10px solid white;
+      margin-top: -6px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Logo -->
-    <div class="logo-container">
-        <div class="logo">Injneer</div>
+  <div id="marquee-container" aria-label="Top 10 cryptocurrencies prices marquee">
+    <div id="marquee" aria-live="polite" aria-atomic="true">Loading prices...</div>
+  </div>
+  <div id="currency-switch-container" role="group" aria-label="Currency switch">
+    <div id="currency-pointer"></div>
+    <button id="currency-toggle" type="button" aria-pressed="false" aria-label="Toggle currency">USD</button>
+  </div>
+  <header class="flex justify-between items-center p-6">
+    <h1 id="logo" class="text-3xl font-bold tracking-widest select-none" tabindex="0" role="heading" aria-level="1">injneer</h1>
+  </header>
+  <section class="min-h-screen flex flex-col justify-center items-center text-center" id="hero">
+    <h2 class="text-6xl font-extrabold mb-6">Design. Build. Inspire.</h2>
+    <p class="text-xl text-gray-700">Gursimran Singh, aspiring electrical engineer</p>
+  </section>
+  <section id="about" class="min-h-screen flex items-center p-10 max-w-4xl mx-auto">
+    <p class="text-lg text-gray-800 leading-relaxed">
+      Currently, I am working at <a href="https://jenaindustries.com" target="_blank" rel="noopener noreferrer" class="highlight font-semibold">Jena Industries</a> as an Industrial Electrician, specializing in building Air Makeup units, Infrared ovens, and paint line controls. I thoroughly enjoy this work because of my passion for automation. Alongside, I run <a href="https://idzinestudio.com" target="_blank" rel="noopener noreferrer" class="highlight font-semibold">Idzinestudio</a>, a web development corporation based in Canada. My knowledge and interest in cryptography have drawn me deeply into the crypto market and into the Web3 world.
+    </p>
+  </section>
+  <section id="contact" class="min-h-screen flex flex-col justify-center items-center text-center p-10">
+    <h3 class="text-4xl font-bold mb-4">Let’s Connect</h3>
+    <p class="text-gray-700 mb-6">
+      Drop me a line at <a href="mailto:singh@injneer.com" class="highlight">singh@injneer.com</a>
+    </p>
+    <div class="space-x-6 text-lg font-semibold flex">
+      <a href="https://x.com/injneer" target="_blank" rel="noopener noreferrer" class="highlight" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/gursimransinghk/" target="_blank" rel="noopener noreferrer" class="highlight" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/injneer" target="_blank" rel="noopener noreferrer" class="highlight" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
     </div>
+  </section>
+  <footer class="text-center text-gray-600 p-6 text-sm">
+    <p>&copy; 2025 injneer.com — Made with <span class="text-red-500">❤</span> by Gursimran Singh</p>
+    <p>Support: <a href="https://injneer.eth" target="_blank" rel="noopener noreferrer" class="highlight">injneer.eth</a> &amp; <a href="https://injneer.sol" target="_blank" rel="noopener noreferrer" class="highlight">injneer.sol</a></p>
+    <p>This website does not collect cookies or track personal data.</p>
+  </footer>
+  <script>
+    const marquee = document.getElementById('marquee');
+    const toggle = document.getElementById('currency-toggle');
+    let currency = 'usd';
 
-    <!-- Social Icons -->
-    <div class="social-container">
-        <div class="flex flex-row gap-2 sm:gap-3">
-            <a href="https://instagram.com/gursimransinghk" target="_blank" class="social-link">
-                <i class="fab fa-instagram social-icon"></i>
-            </a>
-            <a href="https://linkedin.com/in/gursimransinghk" target="_blank" class="social-link">
-                <i class="fab fa-linkedin social-icon"></i>
-            </a>
-            <a href="https://github.com/injneer" target="_blank" class="social-link">
-                <i class="fab fa-github social-icon"></i>
-            </a>
-            <a href="https://x.com/injneer" target="_blank" class="social-link">
-                <i class="fab fa-twitter social-icon"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- Home Section -->
-    <section id="home" class="section bg-white">
-        <div class="text-center">
-            <h1 class="text-4xl sm:text-5xl font-bold mb-4">Gursimran Singh</h1>
-            <p class="text-lg sm:text-xl text-gray-600 mb-6">Aspiring Engineer (EIT) & Web3 Innovator</p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section bg-gray-100">
-        <div class="max-w-3xl text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-6">About Me</h2>
-            <p class="text-base sm:text-lg text-gray-700">
-                I'm Gursimran Singh, an aspiring engineer (EIT) based in Ontario, Canada. With over 15 years of experience in electrical engineering, automation, and blockchain technology, I specialize in creating innovative Web3 solutions and elegant systems. I hold a Masters in Electrical and Computer Engineering from the University of Windsor, ON, Canada, and am passionate about building decentralized applications that solve real-world problems.
-            </p>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section bg-white">
-        <div class="max-w-5xl w-full">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center">Portfolio</h2>
-            <div class="grid grid-cols-1 gap-6">
-                <div class="bg-gray-100 p-6 rounded-lg">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Web3 Automation System</h3>
-                    <p class="text-gray-700">A decentralized application integrating electrical automation with blockchain for secure control systems.</p>
-                </div>
-                <div class="bg-gray-100 p-6 rounded-lg">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Smart Contract Solution</h3>
-                    <p class="text-gray-700">A blockchain-based solution for automating supply chain processes using Solidity.</p>
-                </div>
-                <div class="bg-gray-100 p-6 rounded-lg">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Electrical DApp</h3>
-                    <p class="text-gray-700">A decentralized app for monitoring and optimizing electrical systems on Ethereum.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="section bg-gray-100">
-        <div class="max-w-5xl w-full">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center">Blog</h2>
-            <div class="grid grid-cols-1 gap-6">
-                <div class="blog-card bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Web3 in Electrical Engineering</h3>
-                    <p class="text-gray-600 mb-4">Published on [Date]</p>
-                    <p class="text-gray-700">Exploring how blockchain can revolutionize automation and electrical systems.</p>
-                    <a href="#" class="text-black font-medium hover:underline">Read More</a>
-                </div>
-                <div class="blog-card bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Building Secure DApps</h3>
-                    <p class="text-gray-600 mb-4">Published on [Date]</p>
-                    <p class="text-gray-700">A guide to developing decentralized applications with security in mind.</p>
-                    <a href="#" class="text-black font-medium hover:underline">Read More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-white">
-        <div class="max-w-3xl text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-6">Contact Me</h2>
-            <p class="text-base sm:text-lg text-gray-700 mb-6">
-                Connect with me via the form below or at <a href="mailto:singh@injneer.com" class="text-black hover:underline">singh@injneer.com</a>.
-            </p>
-            <div class="contact-form max-w-md mx-auto">
-                <input type="text" id="name" placeholder="Your Name" class="mb-4" required>
-                <input type="email" id="email" placeholder="Your Email" class="mb-4" required>
-                <textarea id="message" placeholder="Your Message" rows="5" class="mb-4" required></textarea>
-                <button type="button" onclick="sendEmail()">Send Message</button>
-                <p id="confirmation" class="confirmation-message">Thanks for contacting</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-100 py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-600">© 2025 Injneer. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+    async function fetchPrices() {
+      try {
+        const res = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=10&page=1&sparkline=false`);
+        const data = await res.json();
+        marquee.innerHTML = '';
+        data.forEach((coin) => {
+          const span = document.createElement('span');
+          span.textContent = `${coin.symbol.toUpperCase()}: ${coin.current_price.toLocaleString()} ${currency.toUpperCase()}`;
+          marquee.appendChild(span);
         });
+        marquee.innerHTML += marquee.innerHTML; // clone for loop effect
+      } catch (e) {
+        marquee.textContent = 'Failed to load prices';
+      }
+    }
 
-        // Mailto form submission with confirmation message
-        function sendEmail() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const confirmation = document.getElementById('confirmation');
+    toggle.addEventListener('click', () => {
+      currency = currency === 'usd' ? 'cad' : 'usd';
+      toggle.textContent = currency.toUpperCase();
+      fetchPrices();
+    });
 
-            if (name && email && message) {
-                // Show confirmation message
-                confirmation.style.display = 'block';
-
-                // Clear form fields
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('message').value = '';
-
-                // Trigger mailto link after a brief delay to ensure message is visible
-                setTimeout(() => {
-                    const subject = encodeURIComponent(`Contact from ${name}`);
-                    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-                    window.location.href = `mailto:singh@injneer.com?subject=${subject}&body=${body}`;
-                }, 500);
-            } else {
-                alert('Please fill out all fields.');
-            }
-        }
-    </script>
+    fetchPrices();
+    setInterval(fetchPrices, 60000);
+  </script>
 </body>
 </html>
