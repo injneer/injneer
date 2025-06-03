@@ -1,1 +1,98 @@
+* {
+  cursor: url(https://ani.cursors-4u.net/cursors/cur-13/cur1156.ani),
+    url(https://ani.cursors-4u.net/cursors/cur-13/cur1156.png), auto !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+.highlight {
+  color: #1e40af;
+}
+section {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  box-sizing: border-box;
+}
+#logo {
+  cursor: default;
+}
+#marquee-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 130px;
+  height: 20px;
+  background-color: black;
+  border-radius: 9999px;
+  overflow: hidden;
+  user-select: none;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+#marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: marqueeAnim 25s linear infinite;
+  color: white;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+}
+#marquee span {
+  margin-right: 20px;
+}
+@keyframes marqueeAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+#currency-switch-container {
+  position: fixed;
+  top: 50px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  width: 130px;
+  z-index: 1001;
+  padding-top: 4px;
+}
+#currency-toggle {
+  background: black;
+  border: 2px solid white;
+  color: white;
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+  user-select: none;
+}
+/* About paragraph styling */
+#about p {
+  text-align: justify;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+}
 
