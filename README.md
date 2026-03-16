@@ -1,44 +1,44 @@
-# injneer.com — Personal Portfolio
+# injneer.com
 
-This is the source code for [injneer.com](https://injneer.com), the personal portfolio of **Gursimran Singh**, an aspiring electrical engineer and full-stack web developer based in Canada.
+Personal portfolio of **Gursimran Singh** — Industrial Electrician, Engineer-in-Training, and Web3 enthusiast based in Ontario, Canada.
 
-## 🔧 About
-
-- 🎓 Master’s in Electrical and Computer Engineering (University of Windsor, Ontario)
-- 👨‍🔧 Industrial Electrician at [Jena Industries](https://jenaindustries.com)
-- 🌐 Founder of [Idzinestudio](https://idzinestudio.com)
-- 💡 Passionate about automation, digital systems, and the Web3 ecosystem
-- 🪙 Deep interest in cryptography and the crypto market
-
-## 🌐 Live Preview
+## Live
 
 🔗 [https://injneer.com](https://injneer.com)
 
-## ✨ Features
+## Stack
 
-- Smooth section scrolling using keyboard arrow keys
-- Real-time top 10 cryptocurrency prices via CoinGecko API
-- Custom animated engineering-style cursor
-- USD/CAD toggle for price display
-- Web3 and engineering-inspired UI design
-- Mobile-first and responsive layout
-- Accessible, semantic HTML
-- Social links: X, LinkedIn, GitHub
-- Donation support via `injneer.eth` and `injneer.sol`
+- HTML5 + Vanilla CSS/JS
+- Binance Public API — live crypto prices
+- Inline SVG icons — no external dependencies
+- Google Fonts — Space Mono + DM Sans
 
-## 📦 Tech Stack
+## Features
 
-- HTML5, Tailwind CSS
-- Vanilla JavaScript
-- CoinGecko API
-- Font Awesome & FlatIcons
-- Custom cursor from [Cursors-4u](https://www.cursors-4u.com/)
+- Live top 10 crypto prices with 24h % change
+- USD / CAD toggle
+- Smooth section scroll — keyboard arrows + mouse wheel
+- Nav dots
+- Fully responsive
 
-## 🧭 Getting Started
+## Structure
 
-To view or edit the project locally:
+```
+injneer/
+├── index.html
+├── .htaccess
+└── README.md
+```
 
-```bash
-git clone https://github.com/injneer/injneer.com.git
-cd injneer.com
-# Open index.html in your preferred browser
+## Deploy
+
+Hosted on Hostinger shared hosting with GitHub auto-deploy.
+Push to `main` → auto deploys to live site.
+
+## Contact
+
+📧 singh@injneer.com  
+🐦 [@injneer](https://x.com/injneer)  
+💼 [LinkedIn](https://www.linkedin.com/in/gursimransinghk/)  
+🐙 [GitHub](https://github.com/injneer)  
+🌐 injneer.eth · injneer.sol
