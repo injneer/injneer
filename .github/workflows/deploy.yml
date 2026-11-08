@@ -15,6 +15,8 @@ jobs:
           sftp -P 65002 -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no u747269979@145.223.107.100 << 'EOF'
           cd /home/u747269979/domains/injneer.com/public_html
           put index.html
+          put llms.txt
+          put sitemap.xml
           -mkdir assets
           put assets/og-image.jpg assets/og-image.jpg
           bye

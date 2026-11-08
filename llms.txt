@@ -1,0 +1,23 @@
+# injneer — Gursimran Singh
+
+> Gursimran Singh (injneer) is an Automation Engineer and Web3 developer based in Hamilton, Ontario, Canada. He builds industrial control systems for paint finishing lines — air makeup units, infrared cure ovens, booths and conveyors — and develops Web3 applications and smart contracts.
+
+## About
+- Name: Gursimran Singh, also known as injneer
+- Location: Hamilton, Ontario, Canada
+- Experience: 5+ years, 100+ control panels built
+- Contact: singh@injneer.com
+
+## Services
+- Industrial control panels: design, assembly and commissioning of UL-listed panels for paint lines, ovens and air handling systems
+- PLC and HMI programming: Allen-Bradley and Siemens, from logic design to SCADA integration and field commissioning
+- Infrared oven controls: gas catalytic IR ovens — temperature profiling, zone control, safety interlocks
+- Paint line automation: conveyors, booths, ovens and chemical monitoring
+- IoT and sensor systems: ESP32/ESP8266 sensor networks, remote telemetry, real-time data acquisition
+- Web3 development: smart contracts, dApp architecture, decentralized protocols
+
+## Links
+- [Website](https://injneer.com/)
+- [LinkedIn](https://linkedin.com/in/gursimransinghk)
+- [GitHub](https://github.com/injneer)
+- [X](https://x.com/injneer)
